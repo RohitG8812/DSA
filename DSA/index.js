@@ -180,7 +180,7 @@
 // day()
 
 //*  19.Write a program that takes a year from the user and print whether that year is a leap year or not.
-//? *If a year is divisible by 4 and not divisible by 100, it’s a leap year. 
+//? *If a year is divisible by 4 and not divisible by 100, it’s a leap year.
 //? *If a year is divisible by 100 but also divisible by 400, it’s a leap year.
 // function leapYear(year) {
 //? using if-else
@@ -255,3 +255,275 @@
 // }
 
 //* 25. Print reverse of Number
+// let n = 24569885
+//? 1st Method
+// let nStr = n.toString().split("").reverse().join("")
+// let nNum = Number(nStr)
+// console.log(nNum)
+
+//? 2nd Method
+// let rev = 0
+// while (n > 0) {
+//     let lastDigit = n % 10 //! gives the lastDigit
+//     rev = (rev * 10) + lastDigit //! add the last digit to the rev (multiply rev by 10 to shift the last digit to the left)
+//     n = Math.floor(n / 10) //! remove the last digit from the n
+// }
+// console.log(rev)
+
+//* 26.Display all Numbers entered by user except pf multiples of 10..
+// let n = prompt('Enter a number')
+// let arr = []
+// function displayNumbers() {
+//     while (n % 10 != 0) {
+//         console.log(n)
+//         arr.push(n)
+//         n = prompt('Enter a number')
+//     }
+//     n = null
+// }
+// displayNumbers()
+// console.log(arr)
+
+//* 27.Check a given number is prime or not..
+// let n = 6
+// function prime() {
+//     if (n <= 1) {
+//         return `${n} is not a prime Number`
+//     }
+//     for (let i = 2; i <= Math.sqrt(n); i++) {
+//         if (n % i == 0) {
+//             console.log(n, i)
+//             return `${n} is not a prime Number`
+//         }
+//     }
+//     return `${n} is a prime Number`
+// }
+// console.log(prime())
+
+//* 28. what is an Output
+// function sol() {
+//     for (let i = 0; i < 5; i++) {
+//         console.log("Hello")
+//         i += 2
+//     }
+// }
+// sol()
+//! hello is printed 2 time here (because at 1st i == 0 so loops run but next
+//! time loops became i == 3(because 1 + 2 == 3) and then it will print hello again
+//! now loop iterate again so now i became 4 and 4 + 2 == 6 so it not satisfy the condition of i < 5 therefore its terminates the loop)
+
+//* 29. Write a program that reads a set of integers, and then prints the sum of the even and odd integers
+// let n = [1, 2, 3, 4, 5, 6]
+// // let n = [2, 4, 6]
+// let odd = []
+// let even = []
+// function sumOfOddOrEven() {
+//     for (let i = 0; i <= n.length - 1; i++) {
+//         if (n[i] % 2 == 0) {
+//             even.push(n[i])
+//         } else {
+//             odd.push(n[i])
+//         }
+//     }
+//     let sumOfOdd = odd.reduce((total, num) => total += num, 0) //! 0 for if odd is empty
+//     let sumOfEven = even.reduce((total, num) => total += num, 0)
+//     console.log(`Odd Numbers : ${odd} \n\nsum Of Odd is : ${sumOfOdd}`)
+//     console.log(`Even Numbers : ${even} \n\nsum Of Even is : ${sumOfEven}`)
+// }
+// sumOfOddOrEven()
+
+//* 30. Write a program to find the factorial of any number entered by the user
+// let n = Number(prompt("Enter a number"))
+// let arr = []
+// if (n < 0) {
+//     console.log("Please Enter a Valid Number")
+// } else {
+//     for (let i = n; i >= 1; i--) {
+//         arr.push(i)
+//     }
+// }
+// console.log("Array:", arr)
+// let factorial = arr.reduce((total, num) => total *= num, 1) //! if n == 0 then it will print 1 for it (because the factorial of 0 is 1)
+// console.log(`Factorial of ${n} is : ${factorial}`)
+
+//*  31.Write a program to print the multiplication table of a number N, entered by the user
+// let n = Number(prompt("Enter a number"))
+// function tableOfN() {
+//     console.log("Multiplication Table of",n)
+//     for (let i = 1; i <= 10; i++) {
+//         console.log(`${n} * ${i} : ${i * n}`)
+//     }
+// }
+// tableOfN()
+
+//* 32.Print half pyramid without start spaces pattern
+// function starPattern() {
+//     for (let i = 1; i <= 4; i++) {
+//         let stars = ''
+//         for (let j = 1; j <= i; j++) {
+//             stars += '* '
+//         }
+//         console.log(stars)
+//     }
+// }
+// starPattern()
+
+//* 33.Print Inverted half pyramid without start spaces pattern
+// function invertedStarPattern() {
+//     for (let line = 1; line <= 4; line++) {
+//         let stars = "";
+//         for (let star = 4; star >= line; star--) {
+//             stars += "* "
+//         }
+//         console.log(stars)
+//     }
+// }
+// invertedStarPattern()
+
+//* 34. Print half Pyramid with spaces Patter..
+// function halfPyramidPattern() {
+//     for (let line = 1; line <= 4; line++) {
+//         let stars = ''
+//         let space = 0
+//         for (let star = 1; star <= line; star++) {
+//             stars += "*"
+//             space = 4 - star
+//         }
+//         let combined = " ".repeat(space) + stars
+//         console.log(combined)
+
+//     }
+// }
+// halfPyramidPattern()
+
+//* 34. Print full Pyramid Patter..
+// function PyramidPattern() {
+//     for (let line = 1; line <= 4; line++) {
+//         let stars = ''
+//         let space = 0
+//         for (let star = 1; star <= line; star++) {
+//             stars += "* "
+//             space = 4 - star
+//         }
+//         let combined = " ".repeat(space) + stars
+//         console.log(combined)
+//     }
+// }
+// PyramidPattern()
+
+//* 35. print half pyramid pattern with numbers
+// function halfPyramidNumbers() {
+//     for (let line = 1; line <= 4; line++) {
+//         let num = "";
+//         for (let j = 1; j <= line; j++) {
+//             num += j + " "
+//         }
+//         console.log(num)
+//     }
+// }
+// halfPyramidNumbers()
+
+//* 36. Print Character Pattern
+// function printCharacterPattern() {
+//     for (let line = 1; line <= 4; line++) {
+//         let ch = 'A'
+//         let pattern = ""
+//         for (let j = 1; j <= line; j++) {
+//             pattern += ch + " "
+//             ch = String.fromCharCode(ch.charCodeAt() + 1)
+//         }
+//         console.log(pattern)
+//     }
+// }
+// printCharacterPattern()
+
+//* 37. Print Character Pattern Continues
+// function printCharacterPattern() {
+//     let ch = 'A'
+//     for (let line = 1; line <= 4; line++) {
+//         let pattern = ""
+//         for (let j = 1; j <= line; j++) {
+//             pattern += ch + " "
+//             ch = String.fromCharCode(ch.charCodeAt() + 1)
+//         }
+//         console.log(pattern)
+//     }
+// }
+// printCharacterPattern()
+
+//* 38. Print Character Pattern Continues in reverse order
+// function printCharacterPattern() {
+//     let totalChars = 10
+//     let ch = String.fromCharCode('A'.charCodeAt(0) + totalChars - 1)
+//     for (let line = 1; line <= 4; line++) {
+//         let pattern = ""
+//         for (let j = 1; j <= line; j++) {
+//             pattern += ch + " "
+//             ch = String.fromCharCode(ch.charCodeAt() - 1)
+//         }
+//         console.log(pattern)
+//     }
+// }
+// printCharacterPattern()
+
+//* 39. Swap values of 2 variables
+// let a = 5
+// let b = 8
+// let temp = a
+// a = b
+// b = temp
+// console.log(a)
+// console.log(b)
+
+//* 40. find product of a & b
+// function product(a, b) {
+//     let product = a * b
+//     return product
+// }
+// console.log(product(5, 5))
+
+//* 41. find Factorial
+// let n = 4
+// let arr = []
+// if (n < 0) {
+//     console.log("Please Enter a positive number")
+// } else {
+//     for (let i = n; i >= 1; i--) {
+//         arr.push(i)
+//     }
+//     let factorial = arr.reduce((total, num) => total *= num, 1)
+//     console.log(`Factorial of ${n} is ${factorial}`)
+// }
+
+//* 42. Binomial Coefficient (Formula of Binomial Coefficient = 'n! / r!*(n-r)!)
+// function factorial(n) {
+//     let fact = 1
+//     for (let i = n; i >= 1; i--) {
+//         fact = fact * i
+//     }
+//     return fact
+// }
+// function BinomialCoefficient(n, r) {
+//     let factorialN = factorial(n)
+//     let factorialR = factorial(r)
+//     let factorialNMR = factorial(n - r)
+//     let binCoefficient = factorialN / (factorialR * factorialNMR)
+//     return binCoefficient
+// }
+// console.log(BinomialCoefficient(5, 2))
+
+//* 43. Check if a number is Prime or not.. 
+// let n = prompt("Enter a number")
+// function isPrime() {
+//     if (n <= 1) {
+//         return `${n} is not a prime number`
+//     } else {
+//         for (let i = 2; i <= Math.sqrt(n); i++) {
+//             if (n % i === 0) {
+//                 return `${n} is not a prime number`
+//             }
+//         }
+//     }
+//     return `${n} is a prime number`
+// }
+// console.log(isPrime())
