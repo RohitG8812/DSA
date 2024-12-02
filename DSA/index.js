@@ -512,7 +512,23 @@
 // }
 // console.log(BinomialCoefficient(5, 2))
 
-//* 43. Check if a number is Prime or not.. 
+//* 43. Check if a number is Prime or not
+// let n = prompt("Enter a number")
+// function isPrime() {
+//     if (n <= 1) {
+//         return `${n} is not a prime number`
+//     } else {
+//         for (let i = 2; i <= n - 1; i++) {
+//             if (n % i === 0) {
+//                 return `${n} is not a prime number`
+//             }
+//         }
+//     }
+//     return `${n} is a prime number`
+// }
+// console.log(isPrime())
+
+//* 44. Check if a number is Prime or not (optimized Loop)
 // let n = prompt("Enter a number")
 // function isPrime() {
 //     if (n <= 1) {
@@ -527,3 +543,57 @@
 //     return `${n} is a prime number`
 // }
 // console.log(isPrime())
+
+//* 45. Print all Primes in a Range..
+// let n = 7;
+// function isPrime(n) {
+//     if (n <= 1) {
+//         return false
+//     }
+//     for (let i = 2; i <= n - 1; i++) {
+//         if (n % i === 0) {
+//             return false
+//         }
+//     }
+//     return true
+// }
+// function primeInRange() {
+//     let primes = [];
+//     for (let i = 2; i <= n; i++) {
+//         if (isPrime(i)) {
+//             primes.push(i)
+//         }
+//     }
+//     return primes
+// }
+// console.log(primeInRange())
+
+//* 46.Convert from Binary to Decimal...
+// let n = 1000
+// function binToDecimal() {
+//     let dec = 0
+//     let pow = 0
+//     while (n > 0) {
+//         let ld = n % 10
+//         dec = dec + (ld * Math.pow(2, pow))
+//         n = Math.floor(n / 10)
+//         pow++
+//     }
+//     console.log(dec)
+// }
+// binToDecimal()
+
+//* 47.Convert from Decimal to Binary... 
+// let n = 5
+// function decToBinary() {
+//     let pow = 0
+//     let bin = 0
+//     while (n > 0) {
+//         let rem = n % 2
+//         bin = bin + (rem * Math.pow(10, pow))
+//         n = Math.floor(n / 2)
+//         pow++
+//     }
+//     console.log(bin)
+// }
+// decToBinary()
