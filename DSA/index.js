@@ -583,7 +583,7 @@
 // }
 // binToDecimal()
 
-//* 47.Convert from Decimal to Binary... 
+//* 47.Convert from Decimal to Binary...
 // let n = 5
 // function decToBinary() {
 //     let pow = 0
@@ -597,3 +597,204 @@
 //     console.log(bin)
 // }
 // decToBinary()
+
+//* 48. Average of 3 number
+// let a = 3
+// let b = 5
+// let c = 7
+// function calAverage(){
+//     let avg = (a + b + c) / 3
+//     console.log(avg)
+// }
+// calAverage()
+
+//* 49.Even or not
+// let n = prompt('Enter a number')
+// function isEven() {
+//     if (n % 2 === 0) {
+//         return true
+//     } else {
+//         return false
+//     }
+// }
+// console.log(isEven())
+
+//* 50.Write a program to check if a number is a palindrome or not?
+//? method 1
+// let n = 121
+// function isPalindrome() {
+//     let revN = 0
+//     let originalNum = n
+//     while (n > 0) {
+//         let ld = n % 10
+//         revN = (revN * 10) + ld
+//         n = Math.floor(n / 10)
+//     }
+//     if (revN === originalNum) {
+//         console.log(`${originalNum} is a palindrome number`)
+//     } else {
+//         console.log(`${originalNum} is not a palindrome number`)
+//     }
+// }
+// isPalindrome()
+
+//? method 2
+// let n = 121
+// function isPalindrome() {
+//     let revN = 0
+//     let originalNum = n
+//     while (n > 0) {
+//         let ld = n % 10
+//         revN = (revN * 10) + ld
+//         n = Math.floor( n / 10)
+//     }
+//     return revN === originalNum
+// }
+// console.log(isPalindrome())
+
+//* 51. Write a Java method to compute the sum of the digits in an integer.
+//* (Hint: Approach this question in the following way:
+//*    a.Take a variable sum = 0
+//*    b.Find the last digit of the number
+//*    c.Add it to the sum
+//*    d.Repeat a & b until the number becomes 0
+// function sumOfDigits(n) {
+//     let sum = 0
+//     while (n > 0) {
+//         let ld = n % 10
+//         sum = sum + ld
+//         n = Math.floor(n / 10)
+//     }
+//     console.log(sum)
+// }
+// let n = prompt("Enter a number")
+// sumOfDigits(n)
+
+//* 52. Hollow rectangle pattern
+// function hollowRectanglePattern(totRows, totCols) {
+//     for (let i = 1; i <= totRows; i++) {
+//         let stars = ''
+//         for (let j = 1; j <= totCols; j++) {
+//             if (i == 1 || i == totRows || j == 1 || j == totCols) {
+//                 stars += "* "
+//             } else {
+//                 stars += "  "
+//             }
+//         }
+//         console.log(stars)
+//     }
+// }
+// hollowRectanglePattern(4, 6)
+
+//* 53. Inverted $ Rotated half pyramid
+// function invertedStarPattern(n) {
+//     for (let i = 1; i <= n; i++) {
+//         let stars = ''
+//         let space = 0
+//         for (let j = 1; j <= i; j++) {
+//             stars += "* "
+//             space = n - i
+//         }
+//         let combined = "  ".repeat(space) + stars
+//         console.log(combined)
+//     }
+// }
+// invertedStarPattern(4)
+
+//* 54. Inverted $ Rotated half pyramid (optimized version)
+// function invertedStarPattern(n) {
+//     for (let i = 1; i <= n; i++) {
+//         let spaces = "  ".repeat(n - i);
+//         let stars = "* ".repeat(i);
+//         console.log(spaces + stars);
+//     }
+// }
+// invertedStarPattern(4);
+
+//* 54. Inverted half pyramid with Numbers
+// function invertedPattern(n) {
+//     for(let i = 1; i <= n; i++) {
+//         let num = ""
+//         for(let j = 1; j <= n - i + 1; j++){
+//             num += j + " "
+//         }
+//         console.log(num)
+//     }
+// }
+// invertedPattern(8)
+
+
+//* 55. floyd's pattern triangle
+// function floydPatternTriangle(n) {
+//     let num = 1
+//     for (let i = 1; i <= n; i++) {
+//         let arr = ''
+//         for (let j = 1; j <= i; j++) {
+//             arr += num + " "
+//             num++
+//         }
+//         console.log(arr)
+//     }
+// }
+// floydPatternTriangle(5)
+
+//* 56. 0-1 triangle
+// function zeroOneTriangle(n){
+//     for(let i = 1; i <= n; i++) {
+//         let arr = ''
+//         for(let j = 1; j <= i; j++) {
+//             if ((i + j) % 2 === 0) {
+//                 arr += 1 + " "
+//             } else {
+//                 arr += 0 + " "
+//             }
+//         }
+//         console.log(arr)
+//     }
+// }
+// zeroOneTriangle(5)
+
+//* 57. Butterfly star pattern
+// function ButterflyPattern(n) {
+//     //  for top-side
+//     for (let i = 1; i <= n; i++) {
+//         let stars = ''
+//         let space = 2 * (n - i)
+//         for (let j = 1; j <= i; j++) {
+//             stars += "*  "
+//         }
+//         let combined = stars + "   ".repeat(space) + stars
+//         console.log(combined)
+//     }
+
+//     // for bottom side
+//     for (let i = n; i >= 1; i--) {
+//         let stars = ''
+//         let space = 2 * (n - i)
+//         for (let j = 1; j <= i; j++) {
+//             stars += "*  "
+//         }
+//         let combined = stars + "   ".repeat(space) + stars
+//         console.log(combined)
+//     }
+// }
+// ButterflyPattern(4)
+
+//* 58. Butterfly star pattern (Optimized version)
+// function ButterflyPattern(n) {
+//     // top side
+//     for (let i = 1; i <= n; i++) {
+//         let stars = '*  '.repeat(i)
+//         let space = 2 * (n - i)
+//         let combined = stars + "   ".repeat(space) + stars
+//         console.log(combined)
+//     }
+//     // bottom side
+//     for (let i = n; i >= 1; i--) {
+//         let stars = '*  '.repeat(i)
+//         let space = 2 * (n - i)
+//         let combined = stars + "   ".repeat(space) + stars
+//         console.log(combined)
+//     }
+// }
+// ButterflyPattern(4)
