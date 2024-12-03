@@ -798,3 +798,276 @@
 //     }
 // }
 // ButterflyPattern(4)
+
+// function ButterflyPattern(n) {
+//     // for top side
+//     for (let i = 1; i <= n; i++) {
+//         let stars = "*  ".repeat(i)
+//         let space = (n - i) * 2
+//         let combined = stars + "   ".repeat(space) + stars
+//         console.log(combined)
+//     }
+
+//     // for Bottom side
+//     for (let i = n; i >= 1; i--){
+//         let stars = "*  ".repeat(i)
+//         let space = (n - i) * 2
+//         let combined = stars + "   ".repeat(space) + stars
+//         console.log(combined)
+//     }
+// }
+// ButterflyPattern(5).
+
+//* 59. Solid rhombus pattern
+// function solidRhombusPattern(n) {
+//     for (let i = 1; i <= n; i++) {
+//         let space = "   ".repeat(n - i)
+//         let stars = "*  ".repeat(n)
+//         let combined = space + stars
+//         console.log(combined)
+//     }
+// }
+// solidRhombusPattern(5)
+
+//* 60. Hollow Rhombus Pattern
+// function hollowRhombusPattern(totRows, totCols) {
+//     for (let i = 1; i <= totRows; i++) {
+//         let stars = ''
+//         let space = "   ".repeat(totRows - i)
+//         for (let j = 1; j <= totCols; j++) {
+//             if (i == 1 || i == totRows || j == 1 || j == totCols) {
+//                 stars += "*  "
+//             } else {
+//                 stars += "   "
+//             }
+//         }
+//         let combined = space + stars
+//         console.log(combined)
+//     }
+// }
+// hollowRhombusPattern(5, 5)
+
+//* 61. Diamond patter
+// function diamondPattern(n) {
+//     // top side
+//     for (let i = 1; i <= n; i++) {
+//         // left side top
+//         let stars = "*  ".repeat(i)
+//         let space = "   ".repeat(n - i)
+//         let combined = space + stars
+
+//         // right side top
+//         let rightStar = "*  ".repeat(i - 1)
+//         let mainCombined = combined + rightStar
+//         console.log(mainCombined)
+
+//     }
+
+//     // bottom side
+//     for (let i = n; i >= 1; i--) {
+//         // left side top
+//         let stars = "*  ".repeat(i)
+//         let space = "   ".repeat(n - i)
+//         let combined = space + stars
+
+//         // right side top
+//         let rightStar = "*  ".repeat(i - 1)
+//         let mainCombined = combined + rightStar
+//         console.log(mainCombined)
+//     }
+// }
+// diamondPattern(4)
+
+//* 62. Number pyramid Pattern
+// function numberPyramid(n) {
+//     let num = 1
+//     for (let i = 1; i <= n; i++) {
+//         let arr = ''
+//         let arr2 = ''
+//         let spaces = 0
+//         for (let j = 1; j <= i; j++) {
+//             arr += num + " "
+//             spaces = n - i
+//         }
+//         for (let j = 2; j <= i; j++) {
+//             arr2 += num + " "
+//         }
+//         num++
+//         let combined = "  ".repeat(spaces) + arr + arr2
+//         console.log(combined)
+//     }
+// }
+// numberPyramid(4)
+
+//* 63. Palindrome Pattern with numbers..
+// function palindromePattern(n) {
+//     for (let i = 1; i <= n; i++) {
+//         let arr = ''
+//         let space = n - i
+//         for (let j = i; j >= 1; j--) {
+//             arr += j + " "
+//         }
+
+//         let arr2 = ''
+//         for (let j = 2; j <= i; j++) {
+//             arr2 += j + " "
+//         }
+//         let combined = "  ".repeat(space) + arr + arr2
+//         console.log(combined)
+//     }
+// }
+// palindromePattern(4)
+
+
+//* 64. Linear Search
+// function linearSearch(arr, key) {
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] === key) {
+//             return i
+//         }
+//     }
+//     return false
+// }
+// let arr = [2, 4, 6, 8, 10, 12, 14, 16]
+// let key = 10
+// let result = linearSearch(arr, key)
+// if (linearSearch(arr, key)) {
+//     console.log(`The Key ${key} is at index ${result}`)
+// } else {
+//     console.log(`Key not found in the array`)
+// }
+
+//* 64. Linear Search in strings
+// function linearSearch(arr, key) {
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] === key) {
+//             return i
+//         }
+//     }
+//     return false
+// }
+// let arr = ["samosa", "chole-bhature", 'vada-pav', 'chaat', 'pani-puri']
+// let key = 'vada-pav'
+// let result = linearSearch(arr, key)
+// if (linearSearch(arr, key)) {
+//     console.log(`The Key ${key} is found at index ${result}`)
+// } else {
+//     console.log("key not found")
+// }
+
+//* 65. find the largest in an array
+// function largestInArray(arr){
+//     let largest = 0
+//     for(let i = 0; i < arr.length; i++){
+//         if (arr[i] > largest) {
+//             largest = arr[i]
+//         }
+//     }
+//     return `Largest in array is ${largest}`
+// }
+// let arr = [2, 5, 7, 3, 2, 1]
+// console.log(largestInArray(arr))
+
+//* 65. find the smallest in an array
+// function smallestInArray(arr) {
+//     let smallest = arr[0] //! assume the first element of an array
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] < smallest) {
+//             smallest = arr[i]
+//         }
+//     }
+//     return `Smallest in array is ${smallest}`
+// }
+// let arr = [2, 5, 7, 3, 2, 9]
+// console.log(smallestInArray(arr))
+
+//* 66. (IMP) binarySearch
+// function binarySearch(arr, key) {
+//     let start = 0
+//     let end = arr.length - 1
+//     while (start <= end) {
+//         let mid = Math.round((start + end) / 2)
+//         if (arr[mid] === key) {
+//             return mid
+//         } else if (arr[mid] > key) { //left side
+//             end = mid - 1
+//         } else { // right side
+//             start = mid + 1
+//         }
+//     }
+//     return -1
+// }
+// let arr = [2, 4, 6, 8, 10, 12, 14, 16]
+// let key = 2
+// console.log(binarySearch(arr, key))
+
+//* 67. Reverse an Array
+//? Method 1
+// function reverseArr(arr) {
+//     let revArray = []
+//     for (let i = arr.length - 1; i >= 0; i--) {
+//         revArray.push(arr[i])
+//     }
+//     return revArray
+// }
+// let arr = [2, 4, 6, 8, 10]
+// console.log(reverseArr(arr))
+
+//? Method 2 (efficient method)
+// function reverseArr(arr) {
+//     let start = 0
+//     let end = arr.length - 1
+//     while (start <= end) {
+//         let temp = arr[start]
+//         arr[start] = arr[end]
+//         arr[end] = temp
+//         start++
+//         end--
+//     }
+// }
+// let arr = [2, 4, 6, 8, 10]
+// reverseArr(arr)
+// for (let i = 0; i < arr.length; i++) {
+//     console.log(arr[i])
+// }
+
+//* 68.Pairs in an Array.
+// function pairsOfArray(arr){
+//     for(let i = 0; i < arr.length; i++){
+//         console.log(`for pairs of ${arr[i]} : `)
+//         for(let j = i+1; j < arr.length; j++){
+//             console.log(`(${arr[i]}, ${arr[j]}),`)
+//         }
+//     }
+// }
+// let arr = [2, 4, 6, 8, 10]
+// pairsOfArray(arr)
+
+//* 69.Print Total pairs of arrays
+// function pairsOfArray(arr) {
+//     let totalPairs = 0
+//     for (let i = 0; i < arr.length; i++) {
+//         for (let j = i + 1; j < arr.length; j++) {
+//             console.log(`(${arr[i]}, ${arr[j]})`)
+//             totalPairs++
+//         }
+//     }
+//     console.log(`Total pairs : ${totalPairs}`)
+// }
+// let arr = [2, 4, 6, 8, 10]
+// pairsOfArray(arr)
+
+//* 70. SubArrays
+// function SubArrays(arr){
+//     for(let i = 0; i < arr.length; i++){
+//         for(let j = i; j < arr.length; j++){
+//             let subArrays = ''
+//             for(let k = i; k <= j; k++){
+//                 subArrays += arr[k] + " "
+//             }
+//             console.log(subArrays)
+//         }
+//     }
+// }
+// let arr = [2, 4, 6, 8, 10]
+// SubArrays(arr)
