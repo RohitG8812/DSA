@@ -1071,3 +1071,402 @@
 // }
 // let arr = [2, 4, 6, 8, 10]
 // SubArrays(arr)
+
+//* 71. Max SubArray Sum (Brute force)
+// function maxSubArraySum(arr) {
+//     let curr = 0
+//     let maxSubArraySum = Number.NEGATIVE_INFINITY
+//     for (let i = 0; i < arr.length; i++) {
+//         for (let j = i; j < arr.length; j++) {
+//             curr = 0
+//             for (let k = i; k <= j; k++) {
+//                 curr += arr[k]
+//             }
+//             if (maxSubArraySum < curr) {
+//                 maxSubArraySum = curr
+//             }
+//         }
+//     }
+//     console.log(`Max SubArr Sum is : ${maxSubArraySum}`)
+// }
+// let arr = [1, -2, 6, -1, 3]
+// maxSubArraySum(arr)
+
+
+//* 72. Max SubArray Sum (Prefix Sum)
+// function maxSubArraySum(arr) {
+//     let curr = 0
+//     let maxSum = Number.NEGATIVE_INFINITY
+//     let prefix = new Array(arr.length).fill(0)
+//     prefix[0] = arr[0]
+//     for (let i = 1; i < prefix.length; i++) {
+//         prefix[i] = prefix[i - 1] + arr[i]
+//     }
+
+//     for (let i = 0; i < arr.length; i++) {
+//         for (let j = i; j < arr.length; j++) {
+//             curr = i == 0 ? prefix[j] : prefix[j] - prefix[i - 1]
+//             if (maxSum < curr) {
+//                 maxSum = curr
+//             }
+//         }
+//     }
+//     console.log(`Max Sum is : ${maxSum}`)
+// }
+// let arr = [1, -2, 6, -1, 3]
+// maxSubArraySum(arr)
+
+//* 72. Max SubArray Sum (Kadanes)
+// function maxSubArraySum(arr) {
+//     let currSum = 0
+//     let maxSum = Number.NEGATIVE_INFINITY
+
+//     for (let i = 0; i < arr.length; i++) {
+//         currSum = currSum + arr[i]
+//         if (currSum < 0) {
+//             currSum = 0
+//         }
+//         maxSum = Math.max(maxSum, currSum)
+//     }
+//     console.log(maxSum)
+// }
+// let arr = [1, -2, 6, -1, 3]
+// maxSubArraySum(arr)
+
+
+//* 73. Trapped RainWater
+// function trappedRainwater(height) {
+//     let leftMax = new Array(height.length).fill(0)
+//     leftMax[0] = height[0]
+//     for (let i = 1; i < height.length; i++) {
+//         leftMax[i] = Math.max(height[i], leftMax[i - 1])
+//     }
+
+//     let rightMax = new Array(height.length).fill(0)
+//     rightMax[height.length - 1] = height[height.length - 1]
+//     for (let i = height.length - 2; i >= 0; i--) {
+//         rightMax[i] = Math.max(height[i], rightMax[i + 1])
+//     }
+
+//     let trappedWater = 0
+//     for (let i = 0; i < height.length; i++) {
+//         let waterLevel = Math.min(leftMax[i], rightMax[i])
+//         trappedWater += waterLevel - height[i]
+//     }
+//     console.log(trappedWater)
+// }
+// let height = [4, 2, 0, 6, 3, 2, 5]
+// trappedRainwater(height)
+
+
+//* 74. Best time for buy or sell Stock
+// function StockProblem(price) {
+//     let buyPrice = Number.POSITIVE_INFINITY
+//     let maxProfit = 0
+//     for (let i = 0; i < price.length; i++) {
+//         if (buyPrice < price[i]) {
+//             let profit = price[i] - buyPrice
+//             maxProfit = Math.max(maxProfit, profit)
+//         } else {
+//             buyPrice = price[i]
+//         }
+//     }
+//     console.log(maxProfit)
+// }
+// let price = [7, 1, 5, 3, 6, 4]
+// StockProblem(price)
+
+
+//* 75. Given an integer array num, return true if any value appears at least twice in the array, and return false if every element is distinct.
+// function twiceNumArray(arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//         for (let j = i + 1; j < arr.length; j++) {
+//             if (arr[i] === arr[j]) {
+//                 return true
+//             }
+//         }
+//     }
+//     return false
+// }
+// let arr = [1, 2, 3, 1]
+// console.log(twiceNumArray(arr))
+
+
+//* 76.Search an Element in Sorted and Rotated array (Pivot question) (Advance Binary Search)  (arr = [4, 5, 6, 7, 0, 1, 2] here the sorted array is rotated for 0, 1, 2)
+// function advanceBinarySearch(arr, target) {
+//     let start = 0
+//     let end = arr.length - 1
+//     while (start <= end) {
+//         let mid = (start + end) / 2
+//         if (target === arr[mid]) {
+//             return mid
+//         } else if (arr[start] < arr[mid]) {
+//             if (target >= arr[start] && target < arr[mid]) {
+//                 end = mid - 1
+//             } else {
+//                 start = mid + 1
+//             }
+//         } else {
+//             if (target > arr[mid] && target <= arr[end]) {
+//                 start = mid + 1
+//             } else {
+//                 end = mid - 1
+//             }
+//         }
+//     }
+//     return -1
+// }
+// let arr = [4, 5, 6, 7, 0, 1, 2]
+// let target = 0
+// console.log(advanceBinarySearch(arr, target))
+
+
+//* 77. Best time for buy or sell Stock problem 2
+// function StockProblem(price) {
+//     let buyPrice = Number.POSITIVE_INFINITY
+//     let maxProfit = 0
+//     for (let i = 0; i < price.length; i++) {
+//         if (buyPrice < price[i]) {
+//             let profit = price[i] - buyPrice
+//             maxProfit = Math.max(maxProfit, profit)
+//         } else {
+//             buyPrice = price[i]
+//         }
+//     }
+//     console.log(maxProfit)
+
+// }
+// let price =  [7, 6, 4, 3, 1]
+// StockProblem(price)
+
+//* 78. TrappedWater Question 2
+// function trappedRainwater(height) {
+//     let leftMax = new Array(height.length).fill(0)
+//     leftMax[0] = height[0]
+//     for (let i = 1; i < height.length; i++) {
+//         leftMax[i] = Math.max(height[i], leftMax[i - 1])
+//     }
+
+//     let rightMax = new Array(height.length).fill(0)
+//     rightMax[height.length - 1] = height[height.length - 1]
+//     for (let i = height.length - 2; i >= 0; i--) {
+//         rightMax[i] = Math.max(height[i], rightMax[i + 1])
+//     }
+
+//     let trappedWater = 0
+//     for(let i = 0; i < height.length; i++) {
+//         let waterLevel = Math.min(leftMax[i], rightMax[i])
+//         trappedWater += waterLevel - height[i]
+//     }
+//     console.log(trappedWater)
+// }
+// // let height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+// let height =  [4, 2, 0, 3, 2, 5]
+// trappedRainwater(height)
+
+//* 79. Triplets
+// function triplets(arr) {
+//     for (let i = 0; i < arr.length - 2; i++) {
+//         for (let j = i; j < arr.length - 2; j++) {
+//             for (let k = j + 1; k < arr.length - 2; k++) {
+//                 if (arr[i] + arr[j] + arr[k] === 0) {
+//                     console.log(`[${arr[i]}, ${arr[j]}, ${arr[k]}]`)
+//                 }
+//             }
+//         }
+//     }
+// }
+// let arr = [-1, 0, 1, 2, -1, -4]
+// triplets(arr)
+
+//* 80. 2 Sum Using HashMap
+// function twoSum(arr) {
+//     let map = new Map()
+//     for(let i = 0; i < arr.length; i++) {
+//         let complement = -i
+//         if (map.has(complement)) {
+//             console.log(`Pair found : (${complement}, ${i})`)
+//         }
+//         map.set(arr[i], true)
+//     }
+// }
+// let arr = [-1, 0, 1, 2, -1, -4]
+// twoSum(arr)
+
+//* 81. Three Sum
+// function threeSum(arr) {
+//     let result = []
+//     arr.sort((a, b) => a - b)
+//     for (let i = 0; i < arr.length - 2; i++) {
+//         if (i > 0 && arr[i] === arr[i - 1]) continue;
+//         let start = i + 1
+//         let end = arr.length - 1
+//         while (start < end) {
+//             const sum = arr[i] + arr[start] + arr[end]
+//             if (sum === 0) {
+//                 result.push([arr[i], arr[start], arr[end]])
+//                 while (start < end && arr[start] === arr[start + 1]) start++
+//                 while (start < end && arr[end] === arr[end + 1]) end++
+
+//                 start++
+//                 end++
+//             } else if (sum < 0) {
+//                 start++
+//             } else {
+//                 end--
+//             }
+//         }
+//     }
+//     return result
+// }
+// let arr = [-1, 0, 1, 2, -1, -4]
+// console.log(threeSum(arr))
+
+
+//* 82.Three Sum using hashMap
+// function threeSum(arr) {
+//     let result = []
+//     arr.sort((a, b) => a - b)
+//     for (let i = 0; i < arr.length - 2; i++) {
+//         if (i > 0 && arr[i] === arr[i - 1]) continue;
+//         let target = -arr[i]
+//         let map = new Map()
+//         for(let j = i + 1; j < arr.length; j++){
+//             let complement = target - arr[j];
+//             if (map.has(complement)) {
+//                 result.push([arr[i], complement, arr[j]])
+
+//             }
+//             map.set(arr[j], j)
+//         }
+//     }
+//     return result
+// }
+// let arr = [-1, 0, 1, 2, -1, -4]
+// console.log(threeSum(arr))
+
+
+// function twoSum(arr) {
+//     let result = [];
+//     for (let i = 0; i < arr.length - 1; i++) {
+//         for (let j = i + 1; j < arr.length; j++) {
+//             let sum = arr[i] + arr[j]
+//             if (sum === 0) {
+//                 result.push([i, j])
+//             }
+//         }
+//     }
+//     return result
+// }
+// let arr = [-1, 0, 1, 2, -1, -4]
+// console.log(twoSum(arr))
+
+// function twoSum(arr) {
+//     let result = []
+//     let map = new Map();
+//     for (let i = 0; i < arr.length; i++) {
+//         let complement = -arr[i]
+//         if (map.has(complement)) {
+//             result.push([map.get(complement), i])
+//         }
+//         map.set(arr[i], i)
+//     }
+//     return result
+// }
+// let arr = [-1, 0, 1, 2, -1, -4]
+// console.log(twoSum(arr))
+
+//*  83. Bubble sort method
+// function bubbleSort(arr) {
+//     for (let i = 0; i < arr.length - 1; i++) {
+//         for (let j = 0; j < arr.length - 1 - i; j++) {
+//             if (arr[j] > arr[j + 1]) {
+//                 let temp = arr[j]
+//                 arr[j] = arr[j + 1]
+//                 arr[j + 1] = temp
+//             }
+//         }
+//     }
+// }
+
+// function printArr(arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//         console.log(arr[i] + " ")
+//     }
+// }
+
+// let arr = [5, 4, 6, 2, 3]
+// bubbleSort(arr)
+// printArr(arr)
+
+
+//* 84. Bubble Sort Decreasing order
+// function bubbleSort(arr) {
+//     for (let i = 0; i < arr.length - 1; i++) {
+//         for (let j = 0; j < arr.length - 1 - i; j++) {
+//             if (arr[j] > arr[j + 1]) {
+//                 let temp = arr[j]
+//                 arr[j] = arr[j + 1]
+//                 arr[j + 1] = temp
+//             }
+//         }
+//     }
+// }
+
+// function printArr(arr) {
+//     for (let i = arr.length - 1; i >= 0; i--) {
+//         console.log(arr[i] + " ")
+//     }
+// }
+
+// let arr = [5, 4, 6, 2, 3]
+// bubbleSort(arr)
+// printArr(arr)
+
+//* 85. Selection Sort
+// function selectionSort(arr) {
+//     for (let i = 0; i < arr.length - 1; i++) {
+//         let smallest = i;
+//         for (let j = i + 1; j < arr.length; j++) {
+//             if (arr[j] < arr[smallest]) {
+//                 smallest = j
+//             }
+//         }
+//         let temp = arr[smallest]
+//         arr[smallest] = arr[i]
+//         arr[i] = temp
+//     }
+// }
+
+// function printArr(arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//         console.log(arr[i] + " ")
+//     }
+// }
+
+// let arr = [5, 4, 6, 2, 3]
+// selectionSort(arr)
+// printArr(arr)
+
+
+//* 86. Insertion Sort
+// function insertionSort(arr) {
+//     for (let i = 1; i < arr.length; i++) {
+//         let curr = arr[i]
+//         let prev = i-1
+//         while(prev >= 0 && arr[prev] > curr){
+//             arr[prev + 1] = arr[prev]
+//             prev--  // until the index become -1
+//         }
+//         arr[prev + 1] = curr //arr[prev + 1] because of prev-- prev become -1 thats why we are moving to index 1 by doing arr[prev + 1]
+//     }
+// }
+
+// function printArr(arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//         console.log(arr[i] + " ")
+//     }
+// }
+// let arr = [5, 4, 6, 2, 3]
+// insertionSort(arr)
+// printArr(arr)
